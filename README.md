@@ -4,23 +4,35 @@ A robust backend API built with **Node.js**, **Express**, **TypeScript**, and **
 
 ---
 
+## 🌐 Project Resources
+
+- 🔗 **Live Deployment URL**: [Vercel](https://courier-system-backend.vercel.app)
+- 🧩 **Visualize Project with ER Diagram**:  
+  ![ER Diagram](https://drive.google.com/file/d/1yPV5CkKC-t7z8YNCtKEeud5IFO7sEkNp/view)
+
+---
+
 ## 📌 Features
 
 ### 🔐 Authentication & Authorization
+
 - Register/Login with **JWT**
 - **Role-based access**: `Admin`, `Delivery Agent`, `Customer`
 
 ### 📦 Parcel Management
+
 - Customers can book parcel pickups
 - Admins can assign delivery agents
 - Agents can update parcel statuses: `Picked Up`, `In Transit`, `Delivered`, `Failed`
 
 ### 📡 Real-Time Features
+
 - Geolocation tracking via coordinates
 - Location history for each parcel
 - Status updates with **Socket.IO** (frontend integration)
 
 ### 📊 Admin Dashboard & Reporting
+
 - Daily booking metrics
 - COD amount calculation
 - Failed delivery counts
@@ -30,15 +42,15 @@ A robust backend API built with **Node.js**, **Express**, **TypeScript**, and **
 
 ## 🛠️ Tech Stack
 
-| Tech             | Usage                          |
-|------------------|--------------------------------|
-| Node.js + Express | API development               |
-| TypeScript        | Strong typing & maintainability |
-| MongoDB + Mongoose| NoSQL data modeling           |
-| JWT               | Authentication & authorization |
-| Socket.IO         | Real-time status updates       |
-| Multer, PDFKit    | File handling, PDF generation |
-| json2csv          | CSV export                    |
+| Tech               | Usage                           |
+| ------------------ | ------------------------------- |
+| Node.js + Express  | API development                 |
+| TypeScript         | Strong typing & maintainability |
+| MongoDB + Mongoose | NoSQL data modeling             |
+| JWT                | Authentication & authorization  |
+| Socket.IO          | Real-time status updates        |
+| Multer, PDFKit     | File handling, PDF generation   |
+| json2csv           | CSV export                      |
 
 ---
 
@@ -57,6 +69,7 @@ src/
 ├── utils/ # Helper functions (JWT, PDF, CSV)
 └── types/ # Custom TypeScript interfaces
 ```
+
 ---
 
 ---
@@ -69,18 +82,20 @@ src/
 
 http://localhost:5000/api
 
-
 ### Auth
+
 - `POST /auth/register`
 - `POST /auth/login`
 
 ### Parcels
+
 - `POST /parcels` (Customer)
 - `GET /parcels/my` (Customer history)
 - `PATCH /parcels/:id/status` (Agent updates status)
 - `PATCH /parcels/:id/assign` (Admin assigns agent)
 
 ### Admin
+
 - `GET /admin/metrics` (Dashboard data)
 - `GET /admin/users`
 - `GET /admin/bookings`
@@ -92,7 +107,7 @@ http://localhost:5000/api
 
 Create a `.env` file in the root:
 
-```env
+````env
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/parcel-system
 JWT_SECRET=your_jwt_secret
@@ -115,11 +130,10 @@ npm run dev
 # Or build & start production
 npm run build
 npm run start
-```
+````
 
 ---
 
 ## 📄 License
+
 This project is licensed under the MIT License.
-
-
