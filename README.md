@@ -8,7 +8,7 @@ A robust backend API built with **Node.js**, **Express**, **TypeScript**, and **
 
 - 🔗 **Live Deployment URL**: [Vercel](https://courier-system-backend.vercel.app)
 - 🧩 **Visualize Project with ER Diagram**:  
-  ![ER Diagram](https://drive.google.com/file/d/1yPV5CkKC-t7z8YNCtKEeud5IFO7sEkNp/view)
+  ![ER Diagram](https://raw.githubusercontent.com/Nadim-Nion/courier-parcel-management-backend/refs/heads/main/parcel-courier-project.PNG)
 
   Click Here: [Draw.io](https://drive.google.com/file/d/1yPV5CkKC-t7z8YNCtKEeud5IFO7sEkNp/view)
 
