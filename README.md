@@ -10,6 +10,8 @@ A robust backend API built with **Node.js**, **Express**, **TypeScript**, and **
 - 🧩 **Visualize Project with ER Diagram**:  
   ![ER Diagram](https://drive.google.com/file/d/1yPV5CkKC-t7z8YNCtKEeud5IFO7sEkNp/view)
 
+  Click Here: [Draw.io](https://drive.google.com/file/d/1yPV5CkKC-t7z8YNCtKEeud5IFO7sEkNp/view)
+
 ---
 
 ## 📌 Features
