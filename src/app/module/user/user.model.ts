@@ -1,5 +1,6 @@
 import { model, Schema } from 'mongoose';
 import { TUser } from './user.interface';
+import { USER_ROLES } from './user.constant';
 
 const userSchema = new Schema<TUser>(
   {
@@ -22,7 +23,7 @@ const userSchema = new Schema<TUser>(
     role: {
       type: String,
       enum: {
-        values: ['admin', 'agent', 'customer'],
+        values: USER_ROLES,
         message: 'Role must be either admin, agent, or customer',
       },
       default: 'customer',
