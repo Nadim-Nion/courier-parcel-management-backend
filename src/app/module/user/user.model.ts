@@ -1,9 +1,14 @@
 import { model, Schema } from 'mongoose';
-import { TUser } from './user.interface';
+import { TUser, UserModelType } from './user.interface';
 import { USER_ROLES } from './user.constant';
+import bcrypt from 'bcrypt';
+import config from '../../config';
 
-const userSchema = new Schema<TUser>(
+const userSchema = new Schema<TUser, UserModelType>(
   {
+    _id: {
+      type: Schema.Types.ObjectId,
+    },
     name: {
       type: String,
       required: [true, 'Name is required'],
@@ -34,4 +39,26 @@ const userSchema = new Schema<TUser>(
   },
 );
 
-export const User = model<TUser>('User', userSchema);
+// Hashing the password before saving to the DB using Pre Hook Middleware
+userSchema.pre('save', async function (next) {
+  this.password = await bcrypt.hash(
+    this.password,
+    Number(config.bcrypt_salt_rounds),
+  );
+  next();
+});
+
+// Check whether the user is exists or not
+userSchema.statics.isUserExistsByEmail = async function (email: string) {
+  return await User.findOne({ email }).select('+password');
+};
+
+// Check whether the password is correct or not
+userSchema.statics.isCheckPassword = async function (
+  plainTextPassword: string,
+  hashedPassword: string,
+) {
+  return await bcrypt.compare(plainTextPassword, hashedPassword);
+};
+
+export const User = model<TUser, UserModelType>('User', userSchema);
