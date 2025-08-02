@@ -16,4 +16,6 @@ router.post(
 
 router.get('/', ParcelControllers.getAllParcels);
 
+router.get('/:parcelId',auth(USERS_SPECIFIC_ROLES.admin, USERS_SPECIFIC_ROLES.customer), ParcelControllers.getAllParcels)
+
 export const ParcelRoutes = router;

@@ -1,3 +1,5 @@
+import status from 'http-status';
+import AppError from '../../errors/AppError';
 import { TParcel } from './parcel.interface';
 import { Parcel } from './parcel.model';
 
@@ -13,7 +15,16 @@ const getAllParcelsFromDB = async () => {
   return result;
 };
 
+const getSingleParcelFromDB = async (parcelId: string) => {
+  const result = await Parcel.findById(parcelId).populate('customer agent');
+  if (!result) {
+    throw new AppError(status.NOT_FOUND, 'Parcel is not found');
+  }
+  return result;
+};
+
 export const ParcelServices = {
   createParcelIntoDB,
   getAllParcelsFromDB,
+  getSingleParcelFromDB,
 };
