@@ -49,9 +49,22 @@ const updateParcel = catchAsync(async (req, res) => {
   });
 });
 
+const deleteParcel = catchAsync(async (req, res) => {
+  const { parcelId } = req.params;
+  const result = await ParcelServices.deleteParcelFromDB(parcelId);
+
+  sendResponse(res, {
+    statusCode: status.OK,
+    success: true,
+    message: 'Parcel is deleted successfully',
+    data: result,
+  });
+});
+
 export const ParcelControllers = {
   createParcel,
   getAllParcels,
   getSingleParcel,
   updateParcel,
+  deleteParcel,
 };

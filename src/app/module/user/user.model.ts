@@ -6,9 +6,6 @@ import config from '../../config';
 
 const userSchema = new Schema<TUser, UserModelType>(
   {
-    _id: {
-      type: Schema.Types.ObjectId,
-    },
     name: {
       type: String,
       required: [true, 'Name is required'],

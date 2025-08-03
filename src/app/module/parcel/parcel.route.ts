@@ -29,4 +29,10 @@ router.patch(
   ParcelControllers.updateParcel,
 );
 
+router.delete(
+  '/:parcelId',
+  auth(USERS_SPECIFIC_ROLES.admin, USERS_SPECIFIC_ROLES.customer),
+  ParcelControllers.deleteParcel,
+);
+
 export const ParcelRoutes = router;
