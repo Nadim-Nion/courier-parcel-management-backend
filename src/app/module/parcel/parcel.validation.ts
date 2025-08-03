@@ -29,6 +29,33 @@ const createParcelValidationSchema = z.object({
   }),
 });
 
+const updateParcelValidationSchema = z.object({
+  body: z.object({
+    customer: z.string({ error: 'Customer ID is required' }).optional(),
+
+    agent: z.string({ error: 'Agent ID is required' }).optional(),
+
+    pickupAddress: z
+      .string({ error: 'Pickup address is required' })
+      .trim()
+      .min(1, 'Pickup address is required')
+      .optional(),
+
+    deliveryAddress: z
+      .string({ error: 'Delivery address is required' })
+      .trim()
+      .min(1, 'Delivery address is required')
+      .optional(),
+
+    size: z.enum([...PARCEL_SIZE]).optional(),
+
+    paymentType: z.enum([...PARCEL_PAYMENT_TYPE]).optional(),
+
+    status: z.enum([...PARCEL_STATUS]).optional(),
+  }),
+});
+
 export const ParcelValidations = {
   createParcelValidationSchema,
+  updateParcelValidationSchema,
 };

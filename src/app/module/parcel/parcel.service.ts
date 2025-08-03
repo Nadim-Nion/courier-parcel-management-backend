@@ -23,8 +23,25 @@ const getSingleParcelFromDB = async (parcelId: string) => {
   return result;
 };
 
+const updateParcelIntoDB = async (
+  parcelId: string,
+  payload: Partial<TParcel>,
+) => {
+  const parcel = await Parcel.findById(parcelId);
+  if (!parcel) {
+    throw new AppError(status.NOT_FOUND, 'Parcel is not found');
+  }
+
+  const result = await Parcel.findByIdAndUpdate(parcelId, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return result;
+};
+
 export const ParcelServices = {
   createParcelIntoDB,
   getAllParcelsFromDB,
   getSingleParcelFromDB,
+  updateParcelIntoDB,
 };

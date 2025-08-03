@@ -5,6 +5,7 @@ import handleZodError from '../errors/handleZodError';
 import handleValidationError from '../errors/handleValidationError';
 import handleDuplicateError from '../errors/handleDuplicateError';
 import AppError from '../errors/AppError';
+import handleCastError from '../errors/handleCastError';
 
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
@@ -36,7 +37,7 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   }
   // Check whether the error is cast error
   else if (err?.name === 'CastError') {
-    const simplifiedError = handleValidationError(err);
+    const simplifiedError = handleCastError(err);
 
     // Reassign the variables with updated values
     message = simplifiedError?.message;

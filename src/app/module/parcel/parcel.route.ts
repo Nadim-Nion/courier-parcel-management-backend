@@ -16,6 +16,17 @@ router.post(
 
 router.get('/', ParcelControllers.getAllParcels);
 
-router.get('/:parcelId',auth(USERS_SPECIFIC_ROLES.admin, USERS_SPECIFIC_ROLES.customer), ParcelControllers.getAllParcels)
+router.get(
+  '/:parcelId',
+  auth(USERS_SPECIFIC_ROLES.admin, USERS_SPECIFIC_ROLES.customer),
+  ParcelControllers.getAllParcels,
+);
+
+router.patch(
+  '/:parcelId',
+  auth(USERS_SPECIFIC_ROLES.admin, USERS_SPECIFIC_ROLES.customer),
+  validateRequest(ParcelValidations.updateParcelValidationSchema),
+  ParcelControllers.updateParcel,
+);
 
 export const ParcelRoutes = router;
