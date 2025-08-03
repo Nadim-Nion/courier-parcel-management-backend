@@ -140,3 +140,40 @@ npm run start
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+---
+
+## Author
+
+Hi, I am Nadim Mahmud Nion. I have recently concluded my graduation from the department of Computer Science and Engineering (CSE) at Daffodil International University (DIU). I have been learning MERN Stack Web Development since 2022.
+
+I am skilled in the following technologies:
+
+- React
+- Express.js
+- TypeScript
+- Mongoose
+- Postman
+- MongoDB Compass
+- NoSQLBooster
+- Node.js
+- MongoDB Atlas
+- JWT
+- Stripe
+- Vite
+- React Router
+- Firebase (Authentication & Hosting)
+- Vercel
+- JavaScript
+- Advanced JavaScript
+- Daisy UI
+- Bootstrap
+- Tailwind
+- HTML5
+- CSS3
+- Media Query
+
+I have built multiple projects using these skills. You are invited to visit my GitHub profile to explore my work — and don't forget to ⭐ star the projects you like!
+
+Developed by Nadim Mahmud Nion 💻
+
